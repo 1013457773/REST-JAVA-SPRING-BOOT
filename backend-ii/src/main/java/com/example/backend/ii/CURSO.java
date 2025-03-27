@@ -1,5 +1,6 @@
 package com.example.backend.ii;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,11 +11,17 @@ public class CURSO {
     @Column(name = "IdCurso")
     private Integer IdCurso;
 
-    @Column(name = "Nombre", nullable = false, length = 100)
+    @Column(name = "Nombre", nullable = false, length = 100 , unique = false)
     private String Nombre;
 
     @Column(name = "IdDocente")
     private Integer IdDocente;
+
+    //Creando relaciones de (Muchos a 1)
+    @ManyToOne
+    @JoinColumn(name = "FK_docente", referencedColumnName = "ID_DOCENTE")
+    @JsonBackReference
+    private  DOCENTE docente;
 
     public CURSO() {
     }
