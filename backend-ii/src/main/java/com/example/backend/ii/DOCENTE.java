@@ -2,7 +2,6 @@ package com.example.backend.ii;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -20,8 +19,11 @@ public class DOCENTE {
     @Column(name = "ESPECIALIDAD", nullable = false, length = 100, unique = false)
     private String Especialidad;
 
+    @ManyToOne
+    @JoinColumn(name = "FK_USUARIO", referencedColumnName = "ID_USUARIO")
+
     //creando relaciones (1 a muchos)
-    @ManyToMany(mappedBy = "docente")
+    @ManyToMany(mappedBy = "Docente")
     @JsonManagedReference
     private List<CURSO> cursos;
 

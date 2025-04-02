@@ -1,5 +1,6 @@
 package com.example.backend.ii;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.sql.Date;
 

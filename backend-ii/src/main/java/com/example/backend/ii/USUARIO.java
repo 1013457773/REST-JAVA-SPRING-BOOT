@@ -1,7 +1,7 @@
 package com.example.backend.ii;
 
-import com.example.backend.ii.*;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "USUARIO")
@@ -26,6 +26,14 @@ public class USUARIO {
     @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_USUARIO", nullable = false)
     private TipoUsuario TipoUsuario;
+
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Estudiamte estudiamte;
+
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private DOCENTE docente;
 
     public USUARIO() {
     }

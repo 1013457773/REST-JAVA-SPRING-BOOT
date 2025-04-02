@@ -1,5 +1,6 @@
 package com.example.backend.ii;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.sql.Date;
 
@@ -22,6 +23,10 @@ public class Estudiamte{
 
     @Column(name = "DIRECCION", nullable = false, length = 250)
     private String Direccion;
+
+    @ManyToOne
+    @JoinColumn(name = "FK_USUARIO", referencedColumnName = "ID_USUARIO")
+    @JsonBackReference
 
     public void ESTUDIANTE(){
     }
