@@ -1,7 +1,6 @@
 package com.example.backend.Servicios;
 
 
-
 import com.example.backend.modelos.Estudiante;
 import com.example.backend.PALABRAS.MensajesAPI;
 import com.example.backend.repositorio.IEstudianteRepositorio;
@@ -35,7 +34,6 @@ public class EstudianteServicio {
     }
 
     //METODO PARA BUSCARUNOPORID
-
     public Estudiante buscarEstudiantePorid(Integer id)throws Exception{
         try {
             Optional<Estudiante> EstudianteQueEstoyBuscando =this.repositorio.findById(id);

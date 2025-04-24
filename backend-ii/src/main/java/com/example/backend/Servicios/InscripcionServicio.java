@@ -1,7 +1,8 @@
 package com.example.backend.Servicios;
 
-import com.example.backend.PALABRAS.MensajesAPI;
+
 import com.example.backend.modelos.Inscripcion;
+import com.example.backend.PALABRAS.MensajesAPI;
 import com.example.backend.repositorio.IInscripcionRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,6 @@ public class InscripcionServicio {
     }
 
     //METODO PARA BUSCARUNOPORID
-
     public Inscripcion buscarInscripcionPorid(Integer id)throws Exception{
         try {
             Optional<Inscripcion> InscripcionQueEstoyBuscando =this.repositorio.findById(id);
@@ -62,6 +62,23 @@ public class InscripcionServicio {
             throw new Exception(erro.getMessage());
         }
 
+    }
+
+    //METODO PARA ELIMINAR
+    public boolean EliminarIncripcion(Integer id)throws Exception{
+        try {
+            Optional<Inscripcion>InscripcionQueBusco=this.repositorio.findById(id);
+            if (InscripcionQueBusco.isPresent()){
+
+                this.repositorio.deleteById(id);
+                return true;
+            }else {
+                throw new Exception(MensajesAPI.ERROR_INSCRIPCION_NO_ENCONTRADO_.getMensaje());
+            }
+
+        }catch(Exception erro){
+            throw new Exception(erro.getMessage());
+        }
     }
 
 }
