@@ -65,7 +65,7 @@ public class DocenteServicio {
             throw new Exception(erro.getMessage());
         }
 
-        }
+    }
 
     //METODO PARA ELIMINAR
     public boolean EliminarDocente(Integer id)throws Exception{
