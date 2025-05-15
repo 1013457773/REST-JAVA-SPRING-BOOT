@@ -16,7 +16,7 @@ public class AsistenciaServicio {
     IAsistenciaRepositorio repositorio;
 
     //METODO PARA GUARDAR
-    public Asistencia guardarDocentes(Asistencia DatosAsistencia)throws  Exception{
+    public Asistencia guardarAsistencia(Asistencia DatosAsistencia)throws  Exception{
         try {
             return  this.repositorio.save(DatosAsistencia);
         }catch (Exception error){
